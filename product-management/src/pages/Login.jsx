@@ -20,6 +20,7 @@ function Login() {
       localStorage.setItem('username', values.username); 
       alert('Login successful');
       navigate('/products'); 
+      window.location.reload();
     } else {
       alert('Invalid credentials');
     }
