@@ -43,7 +43,7 @@ function SignUp() {
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
         {({ touched, errors }) => (
           <Form>
-            {/* Username Field */}
+
             <BootstrapForm.Group className="mb-3">
               <BootstrapForm.Label>Username</BootstrapForm.Label>
               <Field
@@ -56,7 +56,6 @@ function SignUp() {
               <ErrorMessage name="username" component="div" className="text-danger" />
             </BootstrapForm.Group>
 
-            {/* Email Field */}
             <BootstrapForm.Group className="mb-3">
               <BootstrapForm.Label>Email</BootstrapForm.Label>
               <Field
@@ -69,43 +68,41 @@ function SignUp() {
               <ErrorMessage name="email" component="div" className="text-danger" />
             </BootstrapForm.Group>
 
-            {/* Password Field with Eye Icon */}
             <BootstrapForm.Group className="mb-3">
               <BootstrapForm.Label>Password</BootstrapForm.Label>
               <InputGroup>
                 <Field
                   name="password"
                   as={BootstrapForm.Control}
-                  type={showPassword ? 'text' : 'password'} // Toggle password visibility
+                  type={showPassword ? 'text' : 'password'} 
                   isInvalid={touched.password && errors.password}
                   placeholder="Enter your password"
                 />
                 <InputGroup.Text onClick={togglePasswordVisibility} style={{ cursor: 'pointer' }}>
-                  {showPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle Icon */}
+                  {showPassword ? <FaEyeSlash /> : <FaEye />} 
                 </InputGroup.Text>
               </InputGroup>
               <ErrorMessage name="password" component="div" className="text-danger" />
             </BootstrapForm.Group>
 
-            {/* Confirm Password Field with Eye Icon */}
+          
             <BootstrapForm.Group className="mb-3">
               <BootstrapForm.Label>Confirm Password</BootstrapForm.Label>
               <InputGroup>
                 <Field
                   name="confirmPassword"
                   as={BootstrapForm.Control}
-                  type={showConfirmPassword ? 'text' : 'password'} // Toggle confirm password visibility
+                  type={showConfirmPassword ? 'text' : 'password'} 
                   isInvalid={touched.confirmPassword && errors.confirmPassword}
                   placeholder="Confirm your password"
                 />
                 <InputGroup.Text onClick={toggleConfirmPasswordVisibility} style={{ cursor: 'pointer' }}>
-                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />} {/* Toggle Icon */}
+                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />} 
                 </InputGroup.Text>
               </InputGroup>
               <ErrorMessage name="confirmPassword" component="div" className="text-danger" />
             </BootstrapForm.Group>
 
-            {/* Submit Button */}
             <Button variant="primary" type="submit">
               Sign Up
             </Button>

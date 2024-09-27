@@ -14,12 +14,12 @@ function Login() {
   };
 
   const onSubmit = (values) => {
-    const storedData = JSON.parse(localStorage.getItem('userData'));
+    const storedData = JSON.parse(localStorage.getItem('userData')); // Assuming the userData is stored correctly
 
     if (storedData && storedData.username === values.username && storedData.password === values.password) {
-      localStorage.setItem('username', values.username);
+      localStorage.setItem('username', values.username); // Set username for authentication
       alert('Login successful');
-      navigate('/products');
+      navigate('/products'); // Navigate to products page on successful login
     } else {
       alert('Invalid credentials');
     }

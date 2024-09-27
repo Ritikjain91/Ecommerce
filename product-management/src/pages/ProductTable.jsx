@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function ProductTable() {
   const [products, setProducts] = useState([]);
@@ -11,7 +11,7 @@ function ProductTable() {
   const [categoryFilter, setCategoryFilter] = useState('');
 
   useEffect(() => {
-    // Use a valid API URL
+    
     axios.get('https://fakestoreapi.com/products')
       .then(response => setProducts(response.data))
       .catch(error => {
@@ -21,7 +21,7 @@ function ProductTable() {
   }, []);
 
   const handleDelete = (id) => {
-    // Replace with your actual delete API URL
+   
     axios.delete(`https://fakestoreapi.com/products/${id}`)
       .then(() => {
         setProducts(products.filter(product => product.id !== id));
@@ -31,12 +31,12 @@ function ProductTable() {
   };
 
   const handleUpdate = (product) => {
-    // Replace with actual API PUT request
+ 
     axios.put(`https://fakestoreapi.com/products/${product.id}`, product)
       .then(() => {
         const updatedProducts = products.map(p => p.id === product.id ? product : p);
         setProducts(updatedProducts);
-        setUpdateProduct(null);  // Close update form
+        setUpdateProduct(null);  
         alert('Product updated successfully');
       })
       .catch(error => console.log('Error updating product:', error));
@@ -60,7 +60,7 @@ function ProductTable() {
 
   return (
     <div className="container mt-4">
-      {/* Search Bar */}
+    
       <input
         type="text"
         className="form-control mb-3"
@@ -69,7 +69,7 @@ function ProductTable() {
         onChange={(e) => setQuery(e.target.value)}
       />
 
-      {/* Dropdown Menu for Category Filter */}
+
       <select
         className="form-select mb-3"
         value={categoryFilter}
@@ -82,7 +82,7 @@ function ProductTable() {
         <option value="women's clothing">Women's Clothing</option>
       </select>
 
-      {/* Products Table */}
+     
       <table className="table table-striped">
         <thead>
           <tr>
@@ -114,7 +114,7 @@ function ProductTable() {
         </tbody>
       </table>
 
-      {/* View Popup */}
+  
       {isPopupOpen && selectedProduct && (
         <div className="popup">
           <div className="popup-content">
@@ -128,7 +128,7 @@ function ProductTable() {
         </div>
       )}
 
-      {/* Update Product Form */}
+  
       {updateProduct && (
         <div className="update-form">
           <h2>Update Product</h2>

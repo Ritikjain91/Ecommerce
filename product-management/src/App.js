@@ -7,11 +7,13 @@ import Login from './pages/Login';
 import ProductTable from './pages/ProductTable';
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem('username');
+  const isAuthenticated = !!localStorage.getItem('username'); // Check if user is logged in
 
   return (
     <Router>
-      <Navbar />
+      <div className='mb-5'>
+        <Navbar />
+      </div>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<SignUp />} />
