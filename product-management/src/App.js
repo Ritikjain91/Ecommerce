@@ -8,7 +8,6 @@ import ProductTable from './pages/ProductTable';
 
 function App() {
   const isAuthenticated = !!localStorage.getItem('username'); 
-
   return (
     <Router>
       <div className='mb-5'>

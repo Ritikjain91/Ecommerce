@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function Login() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // React Router's navigation hook
   const [showPassword, setShowPassword] = useState(false);
 
   const initialValues = {
@@ -17,9 +17,9 @@ function Login() {
     const storedData = JSON.parse(localStorage.getItem('userData')); 
 
     if (storedData && storedData.username === values.username && storedData.password === values.password) {
-      localStorage.setItem('username', values.username); 
       alert('Login successful');
-      navigate('/products'); 
+      navigate('/products');
+      window.location.reload();  
     } else {
       alert('Invalid credentials');
     }
